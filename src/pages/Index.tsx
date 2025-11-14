@@ -104,6 +104,13 @@ const Index = () => {
     });
   };
 
+  const handleViewHistory = () => {
+    const historySection = document.getElementById('transfer-history');
+    if (historySection) {
+      historySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header 
@@ -111,9 +118,12 @@ const Index = () => {
         walletConnected={walletConnected}
       />
       
-      <HeroSection onNewTransfer={() => setShowNewTransfer(true)} />
+      <HeroSection 
+        onNewTransfer={() => setShowNewTransfer(true)}
+        onViewHistory={handleViewHistory}
+      />
       
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main id="transfer-history" className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">Material Transfers</h2>
           <p className="text-muted-foreground">
