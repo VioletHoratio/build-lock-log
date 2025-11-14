@@ -4,9 +4,10 @@ import heroImage from "@/assets/hero-construction.jpg";
 
 interface HeroSectionProps {
   onNewTransfer: () => void;
+  onViewHistory: () => void;
 }
 
-const HeroSection = ({ onNewTransfer }: HeroSectionProps) => {
+const HeroSection = ({ onNewTransfer, onViewHistory }: HeroSectionProps) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-accent text-primary-foreground">
       <div className="absolute inset-0 opacity-20">
@@ -37,6 +38,7 @@ const HeroSection = ({ onNewTransfer }: HeroSectionProps) => {
               New Transfer
             </Button>
             <Button 
+              onClick={onViewHistory}
               size="lg"
               variant="outline"
               className="gap-2 bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
